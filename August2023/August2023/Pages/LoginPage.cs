@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using August2023.Utilities;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,31 +21,36 @@ namespace August2023.Pages
 
             //identify username textbox and enter valid username
 
-            IWebElement usernameTextbox = driver.FindElement(By.Id("UserName"));
-            usernameTextbox.SendKeys("hari");
+            try
+            {
+
+                IWebElement usernameTextbox = driver.FindElement(By.Id("UserName"));
+                usernameTextbox.SendKeys("hari");
+            }
+
+            catch (Exception ex)
+            {
+                Assert.Fail("Turnup portal page did not launch", ex.Message);
+            }
+     
 
             //identify password textbox and enter valid password
 
             IWebElement passwordTextbox = driver.FindElement(By.Id("Password"));
             passwordTextbox.SendKeys("123123");
 
-            //identify login button and click on theb button
+            //identify login button and click on the button
+
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"loginForm\"]/form/div[3]/input[1]", 2);
 
             IWebElement loginButton = driver.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[3]/input[1]"));
             loginButton.Click();
 
             //check if user has logged in successfully
 
-           // IWebElement hellohari = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
-           // if (hellohari.Text == "Hello hari!")
-            //{
-              //  Console.WriteLine("user logged in successfully");
+            IWebElement hellohari = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
+            Assert.That(hellohari.Text == "Hello hari!", "user logged in successfully");
 
-            //}
-            //else
-            //{
-            //    Console.WriteLine("user hasn't logged in successfully");
-          //  }
         }
        
 
