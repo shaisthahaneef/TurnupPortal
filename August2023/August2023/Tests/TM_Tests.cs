@@ -29,19 +29,19 @@ namespace August2023.Tests
             HomePage homePageObj = new HomePage();
             homePageObj.GoToTMPage(driver);
         }
-        [Test]
+        [Test,Order(1)]
         public void createTime_Test()
         {
             TMPage tmPageObj = new TMPage();
             tmPageObj.CreateTimeRecord(driver);
         }
-        [Test]
+        [Test,Order(2)]
         public void editTime_Test()
         {
             TMPage tmPageObj = new TMPage();
             tmPageObj.EditTimeRecord(driver);
         }
-        [Test]
+        [Test,Order(3)]
         public void deleteTime_Test()
         {
 

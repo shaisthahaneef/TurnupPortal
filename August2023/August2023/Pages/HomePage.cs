@@ -25,6 +25,20 @@ namespace August2023.Pages
 
 
         }
+
+        public void GoToEmployeesPage(IWebDriver driver)
+        {
+            //navigate to employees page
+
+            IWebElement administrationDropdown = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+            administrationDropdown.Click();
+
+            Wait.WaitToBeClickable(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a", 5);
+
+            IWebElement employeesOption = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a"));
+            employeesOption.Click();
+
+        }
         
     }
 

@@ -49,7 +49,7 @@ namespace August2023.Pages
             //check if user has logged in successfully
 
             IWebElement hellohari = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
-            Assert.That(hellohari.Text == "Hello hari!", "user logged in successfully");
+            Assert.That(hellohari.Text == "Hello hari!", "user not logged in successfully");
 
         }
        

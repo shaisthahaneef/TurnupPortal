@@ -16,8 +16,6 @@ namespace August2023.Pages
         {
             //Create a new time record
 
-
-
             //click on create new button
 
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"container\"]/p/a", 5);
@@ -25,7 +23,6 @@ namespace August2023.Pages
             IWebElement CreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
             CreateNewButton.Click();
            
-
 
             //select time from dropdown
 
@@ -59,14 +56,17 @@ namespace August2023.Pages
             IWebElement saveButton = driver.FindElement(By.Id("SaveButton"));
             saveButton.Click();
 
-           
+
 
             Thread.Sleep(5000);
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
 
+            IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            goToLastPageButton.Click();
 
             //check if new time record has been created successfully
 
-           
+
 
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
@@ -79,11 +79,10 @@ namespace August2023.Pages
         {
             // Code for edit time record
 
-            Wait.WaitToBeVisible(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
-            IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
-            goToLastPageButton.Click();
-
             //click on edit button
+
+
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]", 5);
 
             IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             editButton.Click();
@@ -119,13 +118,12 @@ namespace August2023.Pages
 
             IWebElement saveButton = driver.FindElement(By.Id("SaveButton"));
             saveButton.Click();
-            Wait.WaitToBeVisible(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span",5);
 
-            //check whether record has been edited
+            
+           //check whether record has been edited
 
-            IWebElement gotolastpage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
-            gotolastpage.Click();
-
+        
+            Wait.WaitToBeClickable(driver, "XPath","//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]" , 5);
 
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
@@ -137,11 +135,10 @@ namespace August2023.Pages
 
         public void DeleteTimeRecord(IWebDriver driver)
         {
-            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 7);
-            Thread.Sleep(5000);
-            IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
-            goToLastPageButton.Click();
-            // check the code of the last element
+           
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]", 7);
+            
+            // check the last element
 
             IWebElement gotolastEnteredData = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             string lastEnteredElement = gotolastEnteredData.Text;
