@@ -39,7 +39,7 @@ namespace August2023.Tests
         public void editTime_Test()
         {
             TMPage tmPageObj = new TMPage();
-            tmPageObj.EditTimeRecord(driver);
+            tmPageObj.EditTimeRecord(driver, "whatever");
         }
         [Test,Order(3)]
         public void deleteTime_Test()

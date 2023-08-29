@@ -53,13 +53,13 @@ namespace August2023.Pages
             vehicleTextbox.SendKeys("i10");
 
             //click on groups
-            IWebElement groupsTextbox = driver.FindElement(By.XPath("//*[@id=\"UserEditForm\"]/div/div[8]/div/div/div[1]"));
-            groupsTextbox.Click();
+            //IWebElement groupsTextbox = driver.FindElement(By.XPath("//*[@id=\"UserEditForm\"]/div/div[8]/div/div/div[1]"));
+            //groupsTextbox.Click();
 
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
 
-            IWebElement groupsSelect = driver.FindElement(By.XPath("//*[@id=\"groupList_listbox\"]/li[3]"));
-            groupsSelect.Click();
+            //IWebElement groupsSelect = driver.FindElement(By.XPath("//*[@id=\"groupList_listbox\"]/li[3]"));
+            //groupsSelect.Click();
 
             //click on save button
 
