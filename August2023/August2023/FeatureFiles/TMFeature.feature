@@ -7,19 +7,19 @@ So that I can manage employees time and materials successfully
 @regression
 Scenario: Create time record with valid details
 	Given I logged into Turnup portal successfully
-	And I navigate to Time and material page
+	And I navigate to Time and material page 
 	When I create a new time record
 	Then the record should be created successfully
 
 Scenario Outline: Edit time record with valid details
 Given I logged into Turnup portal successfully
 And I navigate to Time and material page
-When I update '<Code>' on an existing time record
-Then the record should have updated '<Code>'
+When I update '<Code>' and '<Description>' on an existing time record
+Then the record should have updated '<Code>' and '<Description>'
 
 Examples: 
-| Code             |
-| Pen              |
-| Keyboard         |
-| Bottle           |
-| Symbols@#$%}(*   |
+| Code           | Description |
+| Pen            | Monday      |
+| Keyboard       | Numbers     |
+| Bottle         | Driver      |
+| Symbols@#$%}(* | Test cases  |

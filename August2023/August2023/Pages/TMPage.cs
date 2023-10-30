@@ -76,14 +76,14 @@ namespace August2023.Pages
 
         }
 
-        public string GetCode (IWebDriver driver)
+        public string GetCode(IWebDriver driver)
         {
-             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-             return newCode.Text;
+            IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            return newCode.Text;
         }
 
 
-        public void EditTimeRecord(IWebDriver driver, string code)
+        public void EditTimeRecord(IWebDriver driver, string code, string description)
         {
             // Code for edit time record
 
@@ -99,21 +99,21 @@ namespace August2023.Pages
 
             IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             editButton.Click();
-            
+
 
             //click on code 
 
             IWebElement codeTextbox = driver.FindElement(By.Id("Code"));
             codeTextbox.Clear();
             codeTextbox.SendKeys(code);
-           
+
 
             //edit description
 
             IWebElement descriptionTextbox = driver.FindElement(By.Id("Description"));
             descriptionTextbox.Clear();
-            descriptionTextbox.SendKeys("monthly data");
-           
+            descriptionTextbox.SendKeys(description);
+
 
             //edit price
 
@@ -154,6 +154,17 @@ namespace August2023.Pages
         {
             IWebElement editedActualData = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             return editedActualData.Text;
+        }
+
+        public string GetEditedDescription(IWebDriver driver)
+        {
+            IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return editedDescription.Text;
+        }
+
+        public void CloseSteps(IWebDriver driver)
+        {
+            driver.Quit();
         }
 
 
